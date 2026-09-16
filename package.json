@@ -1,0 +1,20 @@
+{
+  "name": "namastefood",
+  "version": "1.0.0",
+  "description": "It's a food delivering app developed using react js",
+  "license": "ISC",
+  "author": "Safwan Ashraf",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
