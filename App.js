@@ -44,34 +44,18 @@ const Body = () => {
         <div className="body">
             <h1>Top restaurant chains in Banglore</h1>
             <div className="body-container">
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
-            <ResCard />
+                <ResCard resName={"Dum Safari Biryani"}/>
+                <ResCard resName={"KFC"}/>
             </div>
         </div>
     )
 }
 
-const ResCard = () => {
+const ResCard = ({resName}) => {
     return (
         <div className="res-card">
             <img className="res-card-image" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/aouhnkmtmchfkiowm8ou"/>
-            <h3 className="res-name">Dum Safari Biryani</h3>
+            <h3 className="res-name">Hello, {resName}</h3>
             <h4 className="res-rating">3.4 . 30-40 mins</h4>
             <h4 className="res-item">Biriyani, Hyderabadi, Kebabs, North...</h4>
             <h4 className="res-address">Koramangala</h4>

@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
-    padding: 5px;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -8,7 +9,8 @@
     align-items: center;
     justify-content: space-between;
     height: 100px;
-    border: 10px rgb(233, 233, 233) solid;
+    padding: 0px 50px;
+    border: 3px rgb(233, 233, 233) solid;
 }
 
 .logo {
@@ -26,21 +28,28 @@
 
 .body {
     margin: 10px;
+    padding: 5px 50px;
 }
 
 .body-container {
+    padding: 10px 0px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .res-card {
-    background-color: rgb(236, 236, 236);
+    background-color: white;
     width: 300px;
     margin: 10px;
     padding: 10px;
-    border: 1px black solid;
+    border: 3px grey solid;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.res-card:hover {
+    background-color: rgb(236, 236, 236);
 }
 
 .res-card-image {
