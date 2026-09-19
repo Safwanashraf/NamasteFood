@@ -19,6 +19,7 @@
 
 .nav-items > ul {
     display: flex;
+    list-style: none;
 }
 
 .nav-items > ul > li {
