@@ -20,5 +20,5 @@ const Body = () => {
         </div>
     )
 }
-//Let's try to make this a little bit interesting
+
 export default Body;
