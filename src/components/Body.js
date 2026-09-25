@@ -26,12 +26,22 @@ const Body = () => {
     }
 
     return (
-        <div className="body">
-            <button className="btn-top-rated" onClick={ () =>{
-                setRestaurants(Restaurants.filter(res => res.info.avgRating > 4.5))
+        <main className="body" id="home">
+            <section className="intro">
+                <div>
+                    <p className="eyebrow">GOOD FOOD, GOOD MOOD</p>
+                    <h1>Find your next<br className="desktop-break" /> favorite meal.</h1>
+                    <p className="intro-copy">A little something delicious is never far away.</p>
+                </div>
+                <button className="btn-top-rated" onClick={ () =>{
+                setRestaurants(Restaurants.filter(res => res.info.avgRating > 4.3))
             }}
-            >Top Rated Restaurants</button>
-            <h1>Top restaurant chains in Banglore</h1>
+            ><span aria-hidden="true">★</span> Top rated</button>
+            </section>
+            <div className="section-heading">
+                <div><p className="eyebrow">CURATED FOR YOU</p><h2>Popular near you</h2></div>
+                <span className="section-note">Fresh picks from Bengaluru</span>
+            </div>
             <div className="body-container">
                 {isLoading
                     ? <Shimmer />
@@ -39,7 +49,7 @@ const Body = () => {
                     Restaurants.map((res) => (<RestaurantCard key={res.info.id} resData={res} />))
                 }
             </div>
-        </div>
+        </main>
     )
 }
 

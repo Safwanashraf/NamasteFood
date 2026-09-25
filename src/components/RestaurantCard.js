@@ -3,14 +3,13 @@ import { CDN_URL } from "../utils/constants";
 const RestaurantCard = ({resData}) => {
     const { name, avgRating, cuisines, cloudinaryImageId, locality, areaName, aggregatedDiscountInfoV3 } = resData.info;
     return (
-        <div className="res-card">
-            <img className="res-card-image" src={ CDN_URL + cloudinaryImageId }/>
+        <article className="res-card">
+            <img className="res-card-image" src={ CDN_URL + cloudinaryImageId } alt={name} />
             {/* <h3 className="res-price">{aggregatedDiscountInfoV3.header + " " + aggregatedDiscountInfoV3.subHeader}</h3> */}
-            <h3 className="res-name">{name}</h3>
-            <h4 className="res-rating">{avgRating}</h4>
-            <h4 className="res-item">{cuisines.join(", ")}</h4>
-            <h4 className="res-address">{locality + ", " + areaName}</h4>
-        </div>
+            <div className="res-title-row"><h3 className="res-name">{name}</h3><span className="res-rating"><span aria-hidden="true">★</span> {avgRating}</span></div>
+            <p className="res-item">{cuisines.join(", ")}</p>
+            <p className="res-address"><span aria-hidden="true">⌖</span> {locality + ", " + areaName}</p>
+        </article>
     )
 }
 
