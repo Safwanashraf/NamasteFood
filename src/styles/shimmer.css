@@ -1,0 +1,9 @@
+.shimmer-card { cursor: default; }
+.shimmer-card:hover { transform: none; box-shadow: 0 4px 15px rgb(45 37 25 / 3%); }
+.shimmer-block, .shimmer-line { background: linear-gradient(90deg, #eeece8 25%, #f8f7f4 50%, #eeece8 75%); background-size: 200% 100%; animation: shimmer 1.4s ease-in-out infinite; }
+.shimmer-line { height: 14px; margin: 12px 3px 0; border-radius: 6px; }
+.shimmer-name { width: 72%; height: 18px; }
+.shimmer-rating { width: 30%; }
+.shimmer-item { width: 88%; }
+.shimmer-address { width: 60%; margin-bottom: 4px; }
+@keyframes shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
