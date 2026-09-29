@@ -21,7 +21,7 @@ const Body = () => {
                 "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
             );
             const json = await data.json();
-            console.log(json);
+            console.log(json, "This is the data fetched");
 
             // Optional Chaining
             const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
@@ -86,7 +86,7 @@ const Body = () => {
                         className="search-submit"
                         type="button"
                     >
-                        {/* <span aria-hidden="true">⌕</span>*/} Search
+                        Search
                     </button>
                 </label>
             </div>
