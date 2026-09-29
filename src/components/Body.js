@@ -1,6 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import resData from "../utils/mockData";
 import { useEffect, useState } from "react";
 
 const Body = () => {
@@ -8,6 +7,9 @@ const Body = () => {
     const [Restaurants, setRestaurants] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchText, setSearchText] = useState("");
+    const [filteredRestaurants, setFilteredRestarants] = useState();
+
+    // Whenever state variables update, react triggers a reconciliation cycle (re-renders the component).
 
     useEffect(() => {
         fetchData();
@@ -27,6 +29,7 @@ const Body = () => {
             setIsLoading(false);
         }
     };
+
 
     return (
         <main className="body" id="home">
@@ -62,9 +65,9 @@ const Body = () => {
                         ⌕
                     </span>
                     <input
-                        onChange={(event) => {
-                            setSearchText(event.target.value);
-                            console.log(searchText);
+                        onChange={(e) => {
+                            setSearchText(e.target.value);
+                            console.log(e.target.value);
                         }}
                         value={searchText}
                         type="search"
@@ -74,9 +77,8 @@ const Body = () => {
                     <button
                         onClick={() => {
                             // Filter the restuaruant card & UI
-                            const filteredRestaurants = Restaurants.filter((res) => res.info.name.toLowerCase().include(searchText.toLowerCase()))
+                            setFilteredRestarants(Restaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())))
                             console.log("Button Clicked!");
-                            setRestaurants
                         }}
                         className="search-submit"
                         type="button"
@@ -89,6 +91,9 @@ const Body = () => {
                 {isLoading ? (
                     <Shimmer />
                 ) : (
+                    filteredRestaurants ? filteredRestaurants.map((res) => (
+                        <RestaurantCard key={res.info.id} resData={res} />
+                    )) :
                     Restaurants.map((res) => (
                         <RestaurantCard key={res.info.id} resData={res} />
                     ))
