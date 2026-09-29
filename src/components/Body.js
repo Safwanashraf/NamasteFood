@@ -7,7 +7,7 @@ const Body = () => {
     const [Restaurants, setRestaurants] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchText, setSearchText] = useState("");
-    const [filteredRestaurants, setFilteredRestarants] = useState();
+    const [filteredRestaurants, setFilteredRestarants] = useState([]);
 
     // Whenever state variables update, react triggers a reconciliation cycle (re-renders the component).
 
@@ -21,10 +21,13 @@ const Body = () => {
                 "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
             );
             const json = await data.json();
-            setRestaurants(
-                json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-                    ?.restaurants,
-            );
+            console.log(json);
+
+            // Optional Chaining
+            const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            
+            setRestaurants(restaurants);
+            setFilteredRestarants(restaurants);
         } finally {
             setIsLoading(false);
         }
@@ -91,10 +94,7 @@ const Body = () => {
                 {isLoading ? (
                     <Shimmer />
                 ) : (
-                    filteredRestaurants ? filteredRestaurants.map((res) => (
-                        <RestaurantCard key={res.info.id} resData={res} />
-                    )) :
-                    Restaurants.map((res) => (
+                    filteredRestaurants.map((res) => (
                         <RestaurantCard key={res.info.id} resData={res} />
                     ))
                 )}
