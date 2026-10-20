@@ -3,13 +3,16 @@
 :root {
     font-family: 'DM Sans', sans-serif;
     color: #24231f;
-    background: #fbfaf7;
+    background: var(--surface);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     --orange: #e95f2b;
+    --orange-soft: #fff1e8;
     --ink: #24231f;
     --muted: #85827b;
+    --surface: #fbfaf7;
+    --surface-warm: #f5eadc;
 }
 
 * {

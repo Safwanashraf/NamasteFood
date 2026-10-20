@@ -1,8 +1,7 @@
-// import NamasteLogo from "../../assets/Namaste-logo.png";
-
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-const logo = new URL("../../assets/Namaste-logo.png", import.meta.url).href;
+const logo = new URL("../../assets/foodie-mark.svg", import.meta.url).href;
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -28,18 +27,18 @@ const Header = () => {
 
   return (
     <header className="header">
-      <a className="brand" href="#home" aria-label="Namaste Food home">
-        <img className="logo" src={logo} alt="Namaste Food" />
+      <Link className="brand" to="/" aria-label="Foodie home">
+        <img className="logo" src={logo} alt="" />
         <span className="brand-name">
-          Namaste<span>Food</span>
+          foodie<span>.</span>
         </span>
-      </a>
+      </Link>
       <nav className="nav-items" aria-label="Main navigation">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
+          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/about">About Us</NavLink></li>
+          <li><NavLink to="/contact">Contact Us</NavLink></li>
+          <li><NavLink to="/cart">Cart</NavLink></li>
           <li>
             <button
               className="btn-login"

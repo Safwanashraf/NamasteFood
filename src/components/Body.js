@@ -37,28 +37,42 @@ const Body = () => {
     return (
         <main className="body" id="home">
             <section className="intro">
-                <div>
+                <div className="intro-content">
                     <p className="eyebrow">GOOD FOOD, GOOD MOOD</p>
                     <h1>
-                        Find your next
-                        <br className="desktop-break" /> favorite meal.
+                        Find a little more <span>delicious.</span>
                     </h1>
                     <p className="intro-copy">
-                        A little something delicious is never far away.
+                        Your next favorite meal could be just around the corner.
                     </p>
+                    <div className="intro-actions">
+                        <button
+                            className="btn-top-rated"
+                            onClick={() => {
+                                setRestaurants(
+                                    Restaurants.filter((res) => res.info.avgRating > 4.3),
+                                );
+                            }}
+                        >
+                            <span aria-hidden="true">★</span> Top rated
+                        </button>
+                        <a className="intro-browse" href="#restaurants">
+                            Explore restaurants <span aria-hidden="true">&#8595;</span>
+                        </a>
+                    </div>
                 </div>
-                <button
-                    className="btn-top-rated"
-                    onClick={() => {
-                        setRestaurants(
-                            Restaurants.filter((res) => res.info.avgRating > 4.3),
-                        );
-                    }}
-                >
-                    <span aria-hidden="true">★</span> Top rated
-                </button>
+                <div className="intro-visual">
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+                        alt="A fresh, colorful meal with vegetables and herbs"
+                    />
+                    <div className="intro-photo-note">
+                        <span>GOOD THINGS ARE COOKING</span>
+                        <strong>Find your next favorite</strong>
+                    </div>
+                </div>
             </section>
-            <div className="section-heading">
+            <div className="section-heading" id="restaurants">
                 <div>
                     <p className="eyebrow">CURATED FOR YOU</p>
                     <h2>Popular near you</h2>

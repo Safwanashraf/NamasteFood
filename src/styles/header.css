@@ -1,61 +1,72 @@
 .header {
-    height: 86px;
+    min-height: 82px;
     padding: 0 max(6vw, calc((100vw - 1240px) / 2));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgb(255 255 255 / 92%);
+    gap: 24px;
+    background: var(--surface);
     border-bottom: 1px solid #efede7;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    flex: none;
+    gap: 9px;
     text-decoration: none;
     color: var(--ink);
 }
 
 .logo {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     object-fit: contain;
 }
 
 .brand-name {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 800;
-    letter-spacing: -1px;
 }
 
 .brand-name span {
     color: var(--orange);
 }
 
+.nav-items {
+    min-width: 0;
+}
+
 .nav-items ul {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 5px;
     list-style: none;
 }
 
-.nav-items li {
+.nav-items a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
     color: #615e58;
     font-size: 14px;
     font-weight: 600;
-    transition: color 150ms ease;
+    text-decoration: none;
+    transition: color 150ms ease, background 150ms ease;
 }
 
-.nav-items li:hover {
+.nav-items a:hover,
+.nav-items a[aria-current="page"] {
+    background: var(--orange-soft);
     color: var(--orange);
 }
 
 .btn-login {
-    min-width: 96px;
-    padding: 11px 20px;
+    min-width: 88px;
+    padding: 11px 17px;
     border: 0;
-    border-radius: 999px;
+    border-radius: 8px;
     background: var(--ink);
     color: white;
     cursor: pointer;
@@ -73,42 +84,52 @@
     outline-offset: 3px;
 }
 
+.nav-items a:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+}
+
 @media (max-width: 700px) {
     .header {
-        height: 72px;
-        padding: 0 6%;
+        min-height: 72px;
+        padding: 10px 5%;
+        flex-wrap: wrap;
+        gap: 4px 14px;
     }
 
     .logo {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
     }
 
     .brand-name {
-        font-size: 17px;
+        font-size: 20px;
+    }
+
+    .nav-items {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .nav-items::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-items ul {
-        gap: 13px;
+        width: max-content;
+        min-width: 100%;
+        justify-content: space-between;
+        gap: 4px;
     }
 
-    .nav-items li {
+    .nav-items a {
+        padding: 8px 10px;
         font-size: 12px;
     }
 
-    .nav-items li:nth-child(2),
-    .nav-items li:nth-child(3) {
-        display: none;
-    }
-
     .btn-login {
-        min-width: 76px;
-        padding: 9px 13px;
-    }
-}
-
-@media (max-width: 500px) {
-    .nav-items li:first-child {
-        display: none;
+        min-width: 72px;
+        padding: 9px 12px;
     }
 }
