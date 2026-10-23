@@ -51,6 +51,7 @@ const Body = () => {
                             onClick={() => {
                                 setRestaurants(
                                     Restaurants.filter((res) => res.info.avgRating > 4.3),
+                                    console.log(Restaurants.filter((res) => res.info.avgRating) )
                                 );
                             }}
                         >

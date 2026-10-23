@@ -14,14 +14,20 @@ const RestaurantMenu = () => {
         setResInfo(json.data);
     };
 
-    const { name, cuisines } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info ?? {};
-    console.log("dataDetails")
+    // const { name, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info ?? {};
+
+    // const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card ?? {};
+    // const dataDetails = resInfo?.cards[2]?.card?.card?.info ?? {};
+    // console.log(dataDetails);
     return resInfo === null ? (
         <Shimmer />
     ) : (
         <div className="menu">
-            <h1>{name}</h1>
-            <p>{cuisines}</p>
+            <h1>hi</h1>
+            <ul>
+                {/* {itemCards.map(item => <li>{item.card.info.name} - {item.card.info.price}</li>)} */}
+               
+            </ul>
         </div>
     )
 }
