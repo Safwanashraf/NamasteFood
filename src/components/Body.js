@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { RESTAURANTS_DATA } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
@@ -18,14 +20,14 @@ const Body = () => {
     const fetchData = async () => {
         try {
             const data = await fetch(
-                "https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+                RESTAURANTS_DATA,
             );
             const json = await data.json();
             console.log(json, "This is the data fetched");
 
             // Optional Chaining
-            const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            
+            const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            console.log(restaurants);
             setRestaurants(restaurants);
             setFilteredRestarants(restaurants);
         } finally {
@@ -33,6 +35,7 @@ const Body = () => {
         }
     };
 
+    console.log(filteredRestaurants);
 
     return (
         <main className="body" id="home">
@@ -110,7 +113,9 @@ const Body = () => {
                     <Shimmer />
                 ) : (
                     filteredRestaurants.map((res) => (
+                        <Link to={"/restaurants/" + res.info.id}>
                         <RestaurantCard key={res.info.id} resData={res} />
+                        </Link>
                     ))
                 )}
             </div>
